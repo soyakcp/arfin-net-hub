@@ -13,6 +13,11 @@ export function Reveal({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Safety: if IntersectionObserver is unavailable, never hide content.
+    if (typeof IntersectionObserver === "undefined") setVisible(true);
+  }, []);
+
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
