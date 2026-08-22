@@ -4,7 +4,7 @@ const ROLES = ["Network Support Engineer", "IT & Systems Support", "MikroTik & C
 
 export function RoleTyping() {
   const [index, setIndex] = useState(0);
-  const [text, setText] = useState(ROLES[0]);
+  const [text, setText] = useState<string>(ROLES[0] ?? "");
   const [deleting, setDeleting] = useState(false);
   const [started, setStarted] = useState(false);
 
@@ -16,7 +16,7 @@ export function RoleTyping() {
 
   useEffect(() => {
     if (!started) return;
-    const full = ROLES[index];
+    const full = ROLES[index] ?? "";
     const done = !deleting && text === full;
     const cleared = deleting && text === "";
 
