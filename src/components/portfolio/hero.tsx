@@ -8,24 +8,27 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/15 blur-[110px]" />
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-        <img
-          src={arfin.url}
-          alt="Arfin Zaman Badhon, Network Support Engineer"
-          width={160}
-          height={160}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="glow-ring h-28 w-28 rounded-full object-cover object-top sm:h-36 sm:w-36"
-        />
+        <div className="relative h-28 w-28 sm:h-36 sm:w-36">
+          <div className="ring-orbit pointer-events-none absolute -inset-[3px] rounded-full opacity-70 [mask-image:radial-gradient(circle,transparent_66%,black_68%)]" />
+          <img
+            src={arfin.url}
+            alt="Arfin Zaman Badhon — Network Support Engineer in Dhaka, Bangladesh"
+            width={160}
+            height={160}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="glow-ring-animated relative h-full w-full rounded-full object-cover object-top"
+          />
+        </div>
 
         <h1 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           ARFIN ZAMAN <span className="text-primary">BADHON</span>
         </h1>
 
-        <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          Network Support Engineer
+        <span className="mt-3 inline-flex min-h-8 items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1">
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+          <RoleTyping />
         </span>
 
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
