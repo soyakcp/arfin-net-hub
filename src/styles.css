@@ -204,3 +204,84 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Animated cyan ring around the profile photo */
+@utility glow-ring-animated {
+  position: relative;
+  box-shadow:
+    0 0 0 2px color-mix(in oklab, var(--primary) 55%, transparent),
+    0 0 60px -12px color-mix(in oklab, var(--primary) 70%, transparent);
+  animation: ring-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px color-mix(in oklab, var(--primary) 50%, transparent),
+      0 0 40px -14px color-mix(in oklab, var(--primary) 60%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px color-mix(in oklab, var(--primary) 85%, transparent),
+      0 0 70px -6px color-mix(in oklab, var(--primary) 85%, transparent);
+  }
+}
+
+@utility ring-orbit {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    color-mix(in oklab, var(--primary) 90%, transparent) 60deg,
+    transparent 140deg,
+    transparent 360deg
+  );
+  animation: orbit-spin 4.5s linear infinite;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility role-shimmer {
+  background: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--primary) 70%, var(--foreground)) 0%,
+    var(--primary) 40%,
+    var(--foreground) 55%,
+    var(--primary) 70%,
+    color-mix(in oklab, var(--primary) 70%, var(--foreground)) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-slide 5s linear infinite;
+}
+
+@keyframes shimmer-slide {
+  to {
+    background-position: -220% 0;
+  }
+}
+
+@utility caret-blink {
+  animation: caret 1.05s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-ring-animated,
+  .ring-orbit,
+  .role-shimmer,
+  .caret-blink {
+    animation: none !important;
+  }
+}
