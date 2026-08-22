@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Phone, MessageCircle } from "lucide-react";
 import arfin from "@/assets/arfin.jpg.asset.json";
+import { RoleTyping } from "./role-typing";
 
 export function Hero() {
   return (
