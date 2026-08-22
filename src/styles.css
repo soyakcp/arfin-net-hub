@@ -205,41 +205,34 @@
   }
 }
 
-/* Animated cyan ring around the profile photo */
-@utility glow-ring-animated {
-  position: relative;
+/* Animated cyan glow behind the profile photo */
+@utility avatar-glow {
   box-shadow:
-    0 0 0 2px color-mix(in oklab, var(--primary) 55%, transparent),
-    0 0 60px -12px color-mix(in oklab, var(--primary) 70%, transparent);
-  animation: ring-pulse 3.2s ease-in-out infinite;
+    0 0 0 2px color-mix(in oklab, var(--primary) 50%, transparent),
+    0 0 50px -12px color-mix(in oklab, var(--primary) 65%, transparent);
+  animation: avatar-glow-pulse 3s ease-in-out infinite;
 }
 
-@keyframes ring-pulse {
+@keyframes avatar-glow-pulse {
   0%,
   100% {
     box-shadow:
-      0 0 0 2px color-mix(in oklab, var(--primary) 50%, transparent),
-      0 0 40px -14px color-mix(in oklab, var(--primary) 60%, transparent);
+      0 0 0 2px color-mix(in oklab, var(--primary) 45%, transparent),
+      0 0 40px -14px color-mix(in oklab, var(--primary) 55%, transparent);
   }
   50% {
     box-shadow:
-      0 0 0 3px color-mix(in oklab, var(--primary) 85%, transparent),
-      0 0 70px -6px color-mix(in oklab, var(--primary) 85%, transparent);
+      0 0 0 4px color-mix(in oklab, var(--primary) 80%, transparent),
+      0 0 70px -6px color-mix(in oklab, var(--primary) 80%, transparent);
   }
 }
 
-@utility ring-orbit {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    color-mix(in oklab, var(--primary) 90%, transparent) 60deg,
-    transparent 140deg,
-    transparent 360deg
-  );
-  animation: orbit-spin 4.5s linear infinite;
+/* Partial animated ring: visible on top-right and bottom-left arcs */
+@utility avatar-ring {
+  animation: avatar-ring-spin 8s linear infinite;
 }
 
-@keyframes orbit-spin {
+@keyframes avatar-ring-spin {
   to {
     transform: rotate(360deg);
   }

@@ -9,17 +9,45 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/15 blur-[110px]" />
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-        <div className="relative h-28 w-28 sm:h-36 sm:w-36">
-          <div className="ring-orbit pointer-events-none absolute -inset-[3px] rounded-full opacity-70 [mask-image:radial-gradient(circle,transparent_66%,black_68%)]" />
+        <div className="relative h-32 w-32 sm:h-40 sm:w-40">
+          {/* Partial animated ring: top-right + bottom-left arcs visible,
+              bottom-right + top-left arcs removed (25% each). */}
+          <svg
+            className="avatar-ring pointer-events-none absolute -inset-2 h-[calc(100%+1rem)] w-[calc(100%+1rem)]"
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="ring-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <circle
+              cx="60"
+              cy="60"
+              r="54"
+              fill="none"
+              stroke="color-mix(in oklab, var(--primary) 90%, transparent)"
+              strokeWidth="6"
+              strokeLinecap="round"
+              strokeDasharray="84.8 84.8 84.8 84.8"
+              transform="rotate(-90 60 60)"
+              filter="url(#ring-glow)"
+            />
+          </svg>
           <img
             src={arfin.url}
             alt="Arfin Zaman Badhon — Network Support Engineer in Dhaka, Bangladesh"
-            width={160}
-            height={160}
+            width={180}
+            height={180}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="glow-ring-animated relative h-full w-full rounded-full object-cover object-top"
+            className="avatar-glow relative h-full w-full rounded-full object-cover object-top"
           />
         </div>
 
