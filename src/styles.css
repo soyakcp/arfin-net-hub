@@ -151,18 +151,16 @@
 }
 
 @utility glass-card {
-  background: color-mix(in oklab, var(--card) 78%, transparent);
+  /* Opaque card: no backdrop-filter — keeps scrolling smooth on mobile. */
+  background: color-mix(in oklab, var(--card) 96%, var(--primary));
   border: 1px solid color-mix(in oklab, var(--primary) 14%, transparent);
-  backdrop-filter: blur(14px) saturate(130%);
   transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     border-color: color-mix(in oklab, var(--primary) 40%, transparent);
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 12%, transparent),
-      0 18px 50px -22px color-mix(in oklab, var(--primary) 55%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 12%, transparent);
   }
 }
 
@@ -205,31 +203,18 @@
   }
 }
 
-/* Animated cyan glow behind the profile photo */
+/* Static cyan glow behind the profile photo (no per-frame repaint) */
 @utility avatar-glow {
   box-shadow:
-    0 0 0 2px color-mix(in oklab, var(--primary) 50%, transparent),
+    0 0 0 2px color-mix(in oklab, var(--primary) 55%, transparent),
     0 0 50px -12px color-mix(in oklab, var(--primary) 65%, transparent);
-  animation: avatar-glow-pulse 3s ease-in-out infinite;
-}
-
-@keyframes avatar-glow-pulse {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 2px color-mix(in oklab, var(--primary) 45%, transparent),
-      0 0 40px -14px color-mix(in oklab, var(--primary) 55%, transparent);
-  }
-  50% {
-    box-shadow:
-      0 0 0 4px color-mix(in oklab, var(--primary) 80%, transparent),
-      0 0 70px -6px color-mix(in oklab, var(--primary) 80%, transparent);
-  }
 }
 
 /* Partial animated ring: visible on top-right and bottom-left arcs */
 @utility avatar-ring {
   animation: avatar-ring-spin 8s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @keyframes avatar-ring-spin {
@@ -270,11 +255,20 @@
   }
 }
 
+@utility soft-glow {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--primary) 22%, transparent),
+    transparent
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glow-ring-animated,
   .ring-orbit,
   .role-shimmer,
-  .caret-blink {
+  .caret-blink,
+  .avatar-ring {
     animation: none !important;
   }
 }
