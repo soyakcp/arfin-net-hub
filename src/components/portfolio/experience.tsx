@@ -1,4 +1,4 @@
-import { Reveal, SectionHeading } from "./reveal";
+import { SectionHeading } from "./reveal";
 
 const roles = [
   {
@@ -28,16 +28,14 @@ const roles = [
 
 export function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
-      <Reveal>
-        <SectionHeading eyebrow="02 / Track record" title="Professional Experience" />
-      </Reveal>
+    <section id="experience" className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <SectionHeading eyebrow="02 / Track record" title="Professional Experience" />
 
       <div className="relative pl-6">
         <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border to-transparent" />
         <div className="space-y-5">
-          {roles.map((role, i) => (
-            <Reveal key={role.title} delay={i * 90}>
+          {roles.map((role) => (
+            <div key={role.title}>
               <div className="relative">
                 <span
                   className={`absolute -left-[27px] top-7 h-3 w-3 rounded-full border-2 ${
@@ -57,7 +55,7 @@ export function Experience() {
                   </p>
                 </div>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
