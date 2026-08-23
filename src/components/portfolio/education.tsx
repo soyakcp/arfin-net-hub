@@ -1,5 +1,5 @@
 import { GraduationCap } from "lucide-react";
-import { Reveal, SectionHeading } from "./reveal";
+import { SectionHeading } from "./reveal";
 
 const education = [
   {
@@ -13,20 +13,18 @@ const education = [
 
 export function Education() {
   return (
-    <section id="education" className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
-      <Reveal>
-        <SectionHeading eyebrow="03 / Academics" title="Education" />
-      </Reveal>
+    <section id="education" className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <SectionHeading eyebrow="03 / Academics" title="Education" />
       <div className="grid gap-5 md:grid-cols-3">
         {education.map((item, i) => (
-          <Reveal key={item.degree} delay={i * 90}>
+          <div key={KEYTMP}>
             <div className="glass-card h-full rounded-2xl p-6">
               <GraduationCap className="h-5 w-5 text-primary" />
               <h3 className="mt-4 text-base font-semibold text-foreground">{item.degree}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{item.school}</p>
               <p className="mt-3 font-mono text-xs text-primary">{item.meta}</p>
             </div>
-          </Reveal>
+          </div>
         ))}
       </div>
     </section>

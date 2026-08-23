@@ -1,5 +1,5 @@
 import { Network, MonitorCog, Wrench } from "lucide-react";
-import { Reveal, SectionHeading } from "./reveal";
+import { SectionHeading } from "./reveal";
 
 const groups = [
   {
@@ -47,13 +47,11 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
-      <Reveal>
-        <SectionHeading eyebrow="01 / Stack" title="Technical Core Skills" />
-      </Reveal>
+    <section id="skills" className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <SectionHeading eyebrow="01 / Stack" title="Technical Core Skills" />
       <div className="grid gap-5 md:grid-cols-3">
         {groups.map((group, i) => (
-          <Reveal key={group.title} delay={i * 90}>
+          <div key={KEYTMP}>
             <div className="glass-card h-full rounded-2xl p-6">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/12 text-primary">
                 <group.icon className="h-5 w-5" />
@@ -70,7 +68,7 @@ export function Skills() {
                 ))}
               </ul>
             </div>
-          </Reveal>
+          </div>
         ))}
       </div>
     </section>
