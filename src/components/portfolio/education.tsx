@@ -16,8 +16,8 @@ export function Education() {
     <section id="education" className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
       <SectionHeading eyebrow="03 / Academics" title="Education" />
       <div className="grid gap-5 md:grid-cols-3">
-        {education.map((item, i) => (
-          <div key={KEYTMP}>
+        {education.map((item) => (
+          <div key={item.degree}>
             <div className="glass-card h-full rounded-2xl p-6">
               <GraduationCap className="h-5 w-5 text-primary" />
               <h3 className="mt-4 text-base font-semibold text-foreground">{item.degree}</h3>

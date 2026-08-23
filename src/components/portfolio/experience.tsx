@@ -34,8 +34,8 @@ export function Experience() {
       <div className="relative pl-6">
         <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border to-transparent" />
         <div className="space-y-5">
-          {roles.map((role, i) => (
-            <div key={KEYTMP}>
+          {roles.map((role) => (
+            <div key={role.title}>
               <div className="relative">
                 <span
                   className={`absolute -left-[27px] top-7 h-3 w-3 rounded-full border-2 ${
