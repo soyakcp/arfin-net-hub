@@ -1,6 +1,14 @@
 import { Mail, Linkedin, Phone, MessageCircle } from "lucide-react";
 import arfin from "@/assets/arfin.jpg.asset.json";
 import { RoleTyping } from "./role-typing";
+import { EMAIL_HREF, LINKEDIN, PHONE_TEL, WHATSAPP } from "@/lib/contact-links";
+
+const socials = [
+  { href: WHATSAPP, icon: MessageCircle, label: "Chat on WhatsApp" },
+  { href: LINKEDIN, icon: Linkedin, label: "LinkedIn profile" },
+  { href: EMAIL_HREF, icon: Mail, label: "Send an email" },
+  { href: PHONE_TEL, icon: Phone, label: "Call +880 1303-626221" },
+];
 
 export function Hero() {
   return (
@@ -10,8 +18,7 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         <div className="relative h-32 w-32 sm:h-40 sm:w-40">
-          {/* Partial animated ring: top-right + bottom-left arcs visible,
-              bottom-right + top-left arcs removed (25% each). */}
+          {/* Partial animated ring: top-right + bottom-left arcs visible. */}
           <svg
             className="avatar-ring pointer-events-none absolute -inset-2 h-[calc(100%+1rem)] w-[calc(100%+1rem)]"
             viewBox="0 0 120 120"
@@ -51,7 +58,10 @@ export function Hero() {
           />
         </div>
 
-        <h1 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
+          <span className="block text-sm font-medium tracking-normal text-muted-foreground sm:text-base">
+            Hi! I&apos;m
+          </span>
           ARFIN ZAMAN <span className="text-primary">BADHON</span>
         </h1>
 
@@ -65,51 +75,33 @@ export function Hero() {
           troubleshooting network infrastructure and corporate systems.
         </p>
 
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
-          <ContactChip
-            href="tel:+8801303626221"
-            icon={<Phone className="h-3.5 w-3.5" />}
-            label="+880 1303-626221"
-          />
-          <ContactChip
-            href="https://wa.me/8801303626221"
-            icon={<MessageCircle className="h-3.5 w-3.5" />}
-            label="WhatsApp"
-          />
-          <ContactChip
-            href="https://linkedin.com/in/arfinzamanbadhon"
-            icon={<Linkedin className="h-3.5 w-3.5" />}
-            label="LinkedIn"
-          />
-          <ContactChip
-            href="mailto:arfinj27@gmail.com"
-            icon={<Mail className="h-3.5 w-3.5" />}
-            label="arfinj27@gmail.com"
-          />
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_-12px_var(--primary)] transition-transform duration-200 hover:scale-105"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Let&apos;s Talk
+          </a>
+
+          <div className="flex items-center gap-2">
+            {socials.map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                title={label}
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/60 text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function ContactChip({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-}) {
-  const external = href.startsWith("http");
-  return (
-    <a
-      href={href}
-      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-      className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
-    >
-      {icon}
-      {label}
-    </a>
   );
 }
