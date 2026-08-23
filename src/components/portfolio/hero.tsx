@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden px-5 pb-10 pt-10 sm:px-8">
       <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/15 blur-[110px]" />
+      <div className="soft-glow pointer-events-none absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full" />
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         <div className="relative h-32 w-32 sm:h-40 sm:w-40">
@@ -24,15 +24,6 @@ export function Hero() {
             viewBox="0 0 120 120"
             aria-hidden="true"
           >
-            <defs>
-              <filter id="ring-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
             <circle
               cx="60"
               cy="60"
@@ -43,9 +34,9 @@ export function Hero() {
               strokeLinecap="round"
               strokeDasharray="84.8 84.8 84.8 84.8"
               transform="rotate(-90 60 60)"
-              filter="url(#ring-glow)"
             />
           </svg>
+
           <img
             src={arfin.url}
             alt="Arfin Zaman Badhon — Network Support Engineer in Dhaka, Bangladesh"
