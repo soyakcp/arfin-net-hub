@@ -214,10 +214,15 @@
 @utility avatar-ring {
   animation: avatar-ring-spin 8s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 @keyframes avatar-ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
   to {
     transform: rotate(360deg);
   }
