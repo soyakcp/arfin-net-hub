@@ -32,7 +32,7 @@ export function Hero() {
               stroke="color-mix(in oklab, var(--primary) 90%, transparent)"
               strokeWidth="6"
               strokeLinecap="round"
-              strokeDasharray="84.8 84.8 84.8 84.8"
+              strokeDasharray="96 73.6 73.6 96"
               transform="rotate(-90 60 60)"
             />
           </svg>
