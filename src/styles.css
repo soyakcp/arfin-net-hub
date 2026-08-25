@@ -211,7 +211,7 @@
 }
 
 /* Partial animated ring: visible on top-right and bottom-left arcs */
-@utility avatar-ring {
+.avatar-ring {
   animation: avatar-ring-spin 2.8s linear infinite;
   will-change: transform;
   transform-box: view-box;
@@ -273,8 +273,11 @@
   .glow-ring-animated,
   .ring-orbit,
   .role-shimmer,
-  .caret-blink,
-  .avatar-ring {
+  .caret-blink {
     animation: none !important;
+  }
+
+  .avatar-ring {
+    animation-duration: 8s;
   }
 }
