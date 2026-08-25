@@ -212,20 +212,21 @@
 
 /* Partial animated ring: visible on top-right and bottom-left arcs */
 .avatar-ring {
-  animation: avatar-ring-spin 2.8s linear infinite;
-  will-change: transform;
-  transform-box: view-box;
-  transform-origin: 60px 60px;
-  backface-visibility: hidden;
+  overflow: visible;
 }
 
-@keyframes avatar-ring-spin {
+.avatar-ring circle {
+  animation: avatar-ring-travel 3.2s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+@keyframes avatar-ring-travel {
   from {
-    transform: rotate(0deg);
+    stroke-dashoffset: 0;
   }
 
   to {
-    transform: rotate(360deg);
+    stroke-dashoffset: -339.2;
   }
 }
 
@@ -277,7 +278,7 @@
     animation: none !important;
   }
 
-  .avatar-ring {
+  .avatar-ring circle {
     animation-duration: 4s;
   }
 }
