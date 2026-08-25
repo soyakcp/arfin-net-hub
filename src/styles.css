@@ -212,10 +212,11 @@
 
 /* Partial animated ring: visible on top-right and bottom-left arcs */
 @utility avatar-ring {
-  animation: avatar-ring-spin 8s linear infinite;
+  animation: avatar-ring-spin 2.8s linear infinite;
   will-change: transform;
-  transform-box: fill-box;
-  transform-origin: center;
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+  backface-visibility: hidden;
 }
 
 @keyframes avatar-ring-spin {
