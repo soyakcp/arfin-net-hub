@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "Arfin, Arfin Zaman, Arfin Zaman Badhon, Network Support Engineer, MikroTik, Cisco, IT support Dhaka",
+          "Arfin, Arfin Zaman, Arfin Zaman Badhon, Arfin Badhon, Badhon, network engineer, Network Support Engineer, MikroTik, Cisco, IT support Dhaka, networking, Bangladesh",
       },
       { name: "author", content: "Arfin Zaman Badhon" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
