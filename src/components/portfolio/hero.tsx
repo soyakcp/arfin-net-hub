@@ -1,6 +1,7 @@
 import { Mail, Linkedin, Phone, MessageCircle } from "lucide-react";
-import arfin from "@/assets/arfin.jpg.asset.json";
 import { RoleTyping } from "./role-typing";
+
+const AVATAR_SRC = "/arfin.jpg";
 import { EMAIL_HREF, LINKEDIN, PHONE_TEL, WHATSAPP } from "@/lib/contact-links";
 
 const socials = [
@@ -38,7 +39,7 @@ export function Hero() {
           </svg>
 
           <img
-            src={arfin.url}
+            src={AVATAR_SRC}
             alt="Arfin Zaman Badhon — Network Support Engineer in Dhaka, Bangladesh"
             width={180}
             height={180}

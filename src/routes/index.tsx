@@ -4,13 +4,11 @@ import { Skills } from "@/components/portfolio/skills";
 import { Experience } from "@/components/portfolio/experience";
 import { Education } from "@/components/portfolio/education";
 import { Contact } from "@/components/portfolio/contact";
-import arfin from "@/assets/arfin.jpg.asset.json";
-
 const SITE = "https://arfin-net-hub.lovable.app";
 const title = "Arfin Zaman Badhon — Network Support Engineer | Arfin Zaman";
 const description =
   "Arfin Zaman Badhon (Arfin Zaman) is a Network Support Engineer in Dhaka, Bangladesh — Cisco IOS, MikroTik RouterOS, VLAN, OSPF, NAT, PPPoE, EVE-NG labs and corporate IT support. Contact, LinkedIn and CV details.";
-const image = arfin.url.startsWith("http") ? arfin.url : `${SITE}${arfin.url}`;
+const image = `${SITE}/arfin.jpg`;
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -89,7 +87,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: SITE },
-      { rel: "preload", as: "image", href: arfin.url, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: "/arfin.jpg", fetchpriority: "high" },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(personJsonLd) },
