@@ -30,7 +30,7 @@ const personJsonLd = {
     addressLocality: "Dhaka",
     addressCountry: "BD",
   },
-  worksFor: { "@type": "Organization", name: "Circle Network Ltd." },
+  
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "Tejgaon College" },
     { "@type": "EducationalOrganization", name: "BPATC School & College" },

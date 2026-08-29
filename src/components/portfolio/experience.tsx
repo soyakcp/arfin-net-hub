@@ -2,14 +2,6 @@ import { SectionHeading } from "./reveal";
 
 const roles = [
   {
-    title: "Network Support Engineer",
-    company: "Circle Network Ltd.",
-    period: "Aug 2026 – Present",
-    detail:
-      "Managing network connectivity, troubleshooting Layer 2/3 issues, configuring routers, and maintaining infrastructure uptime.",
-    current: true,
-  },
-  {
     title: "Accounts Intern",
     company: "The Premium Homes Ltd.",
     period: "May 2026 – Aug 2026",
